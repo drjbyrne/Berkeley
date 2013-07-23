@@ -36,7 +36,71 @@ end
 return winner
 end
 
+
 def rps_tournament_winner(tournament)
+rounds = 0
+  if tournament.length == 2 && tournament[1].length > 1
+    rounds += 1
+    if tournament[0].length == 2 && tournament[0][1].length > 1
+      rounds += 1
+      if tournament[0][0].length == 2 && tournament[0][0][1].length > 1
+        rounds += 1
+        if tournament[0][0][0].length == 2 && tournament[0][0][0][1].length > 1
+          rounds += 1
+          if tournament[0][0][0][0].length == 2 && tournament[0][0][0][0][1].length > 1
+            rounds += 1
+            if tournament[0][0][0][0][0].length == 2 && tournament[0][0][0][0][0][1].length > 1
+              rounds += 1
+              if tournament[0][0][0][0][0][0].length == 2 && tournament[0][0][0][0][0][0][1].length > 1
+                rounds += 1
+                puts "Warning!! This program will not handle more than 128 players!"
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+puts "Rounds: ", rounds
+
+results = Array.new
+
+  if rounds == 7
+#  results[0][0][0][0][0][0] = rps_game_winner(tournament[0][0][0][0][0][0][0],tournament[0][0][0][0][0][0][1])
+
+  elsif rounds == 6
+#  results[0][0][0][0][0]
+
+    elsif rounds == 5
+#  results[0][0][0][0]
+
+      elsif rounds == 4
+#  results[0][0][0]
+
+        elsif rounds == 3
+matches = 4
+
+puts tournament[0][0][0]
+puts tournament[0][0][1]
+
+results[0][0][0] = rps_game_winner([tournament[0][0][0],tournament[0][0][1]])
+puts results[0][0][0]
+
+          elsif rounds == 2
+matches = 2
+    #  results[0]
+
+            elsif rounds == 1
+#  results = rps_game_winner( )
+
+end
+
+
+
+end
+
+
+
 
 
   # Winners of Second-round Matches
@@ -45,7 +109,6 @@ def rps_tournament_winner(tournament)
 
 # Tourney winner
 # return rps_game_winner([winner0H,winner1H])
-end
 
 
 match = [["Armando", "P"], ["Dave", "S"]]
@@ -62,7 +125,4 @@ tourney = [
     ]
 ]
 
-puts tourney.size
-
-
-# puts rps_tournament_winner(tourney)
+puts rps_tournament_winner(tourney)
