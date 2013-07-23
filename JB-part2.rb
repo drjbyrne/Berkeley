@@ -8,18 +8,48 @@ end
 
 def rps_game_winner(game)
   raise WrongNumberOfPlayersError unless game.length == 2
-  raise NoSuchStrategyError unless ((game[0][1] =~ /R|P|S/i) && (game[1][1] =~ /R|P|S/i))
-    puts s
-# Winners of Second-round Matches
-winner0H = rps_game_winner([winner0,winner1])
-winner1H = rps_game_winner([winner2,winner3])
+  if (game[0][1] =~ /R|P|S/i) == nil || (game[1][1] =~ /R|P|S/i) == nil
+    raise NoSuchStrategyError
+  end
+winner = game[0] if game[0][1] == game[1][1]
+
+if game[0][1] == "R"
+  if game[1][1] == "S"
+    winner = game[0]
+    else winner = game[1]
+  end
+end
+
+if game[0][1] == "S"
+  if game[1][1] == "P"
+    winner = game[0]
+    else winner = game[1]
+  end
+end
+
+if game[0][1] == "P"
+  if game[1][1] == "R"
+    winner = game[0]
+    else winner = game[1]
+  end
+end
+return winner
+end
+
+def rps_tournament_winner(tournament)
+
+
+  # Winners of Second-round Matches
+# winner0H = rps_game_winner([winner0,winner1])
+# winner1H = rps_game_winner([winner2,winner3])
+
 # Tourney winner
-return rps_game_winner([winner0H,winner1H])
+# return rps_game_winner([winner0H,winner1H])
 end
 
 
 match = [["Armando", "P"], ["Dave", "S"]]
-puts rps_game_winner(match)
+rps_game_winner(match)
 
 tourney = [
     [
@@ -31,6 +61,8 @@ tourney = [
         [ ["David E.", "R"], ["Richard X.", "P"] ]
     ]
 ]
-puts rps_tournament_winner(tourney)
+
+puts tourney.size
 
 
+# puts rps_tournament_winner(tourney)
