@@ -27,19 +27,16 @@ end
 
 module Enumerable
   def palindrome?
-  if self.is_a?(Hash)
-    puts "It's a Hash"
-    return
-    else
-      @tgs = self
-      @tgs == @tgs.reverse
-    end
+    self == self.reverse
+    rescue NoMethodError
+    self.to_a == self.to_a.reverse
     end
 end
+
 
 
 puts "Madam I'm Adam".palindrome?
 puts [1,2,3,2,1].palindrome?
 puts [1,3,2,4,1].palindrome?
-{"x" => 3, "y" => 2}.palindrome?
-puts [[1,2],[2],[1,2,3],[2],[1,2]].palindrome?
+puts ["x" => 3, "y" => 2].palindrome?
+puts [[1,2],[2],[1,2,3],[2],[1,2,1]].palindrome?
